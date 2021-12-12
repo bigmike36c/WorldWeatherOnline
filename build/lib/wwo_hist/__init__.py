@@ -35,7 +35,9 @@ def extract_monthly_data(data):
         wanted_keys = [
             "date",
             "maxtempC",
+            "maxtempF",
             "mintempC",
+            "mintempF",
             "totalSnow_cm",
             "sunHour",
             "uvIndex",
@@ -60,7 +62,7 @@ def extract_monthly_data(data):
         #                'cloudcover', 'humidity', 'precipMM', 'pressure', 'tempC', 'visibility',
         #                'winddirDegree', 'windspeedKmph']
         # df = df[col_to_keep]
-        # df = df.loc[:,~df.columns.duplicated()]
+        df = df.loc[:, ~df.columns.duplicated()]
         df_month = pd.concat([df_month, df])
     return df_month
 
